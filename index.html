@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scholarship Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="testbar" class="hidden">TEST VERSION - not the real portal. Do not enter real personal data.</div>
+
+<header class="top">
+  <h1 id="brand">Scholarship Portal</h1>
+  <p class="org" id="org"></p>
+  <nav class="menu">
+    <button type="button" data-go="home">Home</button>
+    <button type="button" data-go="apply">Apply / My application</button>
+    <button type="button" id="nav-login" data-go="auth">Log in</button>
+    <button type="button" id="nav-logout" class="hidden">Log out</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- NOT CONNECTED YET -->
+  <section id="v-setup" class="view hidden">
+    <div class="card">
+      <h2>Almost ready</h2>
+      <p>The portal is not connected to its database yet.</p>
+      <p>Open <b>config.js</b>, paste your Supabase <b>Project URL</b> and <b>anon public key</b>, upload the files again, then refresh this page.</p>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section id="v-home" class="view">
+    <div class="card">
+      <h2>About the scholarship</h2>
+      <div id="deadline" class="deadline hidden"></div>
+      <p id="about"></p>
+      <button type="button" class="btn" data-go="apply">Apply now</button>
+    </div>
+    <div class="card">
+      <h2>Who can apply</h2>
+      <ul class="plain" id="elig"></ul>
+    </div>
+    <div class="card">
+      <h2>Documents you will upload</h2>
+      <ul class="plain" id="docs-list"></ul>
+      <p class="muted">JPG, PNG or PDF, up to 2 MB each.</p>
+    </div>
+    <div class="card">
+      <h2>Questions</h2>
+      <div id="faq"></div>
+      <p class="muted">Contact: <span id="contact"></span></p>
+    </div>
+  </section>
+
+  <!-- LOGIN / SIGN UP -->
+  <section id="v-auth" class="view hidden">
+    <div class="card">
+      <h2>Your account</h2>
+      <div class="tabs">
+        <button type="button" id="tab-login" class="on">Log in</button>
+        <button type="button" id="tab-signup">Create account</button>
+      </div>
+      <div id="auth-note" class="note hidden"></div>
+      <label for="a-email">Email</label>
+      <input id="a-email" type="email" autocomplete="email" inputmode="email">
+      <label for="a-pass">Password (at least 8 characters)</label>
+      <input id="a-pass" type="password" autocomplete="current-password">
+      <button type="button" class="btn" id="auth-go">Log in</button>
+      <div><button type="button" class="linkbtn" id="forgot">Forgot password?</button></div>
+    </div>
+  </section>
+
+  <!-- NEW PASSWORD (after reset link) -->
+  <section id="v-newpass" class="view hidden">
+    <div class="card">
+      <h2>Choose a new password</h2>
+      <div id="np-note" class="note hidden"></div>
+      <label for="np-pass">New password (at least 8 characters)</label>
+      <input id="np-pass" type="password" autocomplete="new-password">
+      <button type="button" class="btn" id="np-go">Save password</button>
+    </div>
+  </section>
+
+  <!-- APPLICATION (form or status) -->
+  <section id="v-apply" class="view hidden">
+    <div id="apply-box"><div class="card">Loading...</div></div>
+  </section>
+
+</main>
+
+<footer>
+  <span id="foot"></span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

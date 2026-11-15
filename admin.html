@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin - Scholarship Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="testbar" class="hidden">TEST VERSION - not the real portal. Do not enter real personal data.</div>
+
+<header class="top">
+  <h1>Admin panel</h1>
+  <p class="org" id="org"></p>
+  <nav class="menu">
+    <button type="button" id="nav-list" class="hidden">All applications</button>
+    <button type="button" id="nav-out" class="hidden">Log out</button>
+  </nav>
+</header>
+
+<main>
+
+  <section id="v-setup" class="view hidden">
+    <div class="card">
+      <h2>Almost ready</h2>
+      <p>Open <b>config.js</b> and paste your Supabase <b>Project URL</b> and <b>anon public key</b>, then upload the files again.</p>
+    </div>
+  </section>
+
+  <section id="v-login" class="view">
+    <div class="card">
+      <h2>Administrator login</h2>
+      <div id="login-note" class="note hidden"></div>
+      <label for="l-email">Email</label>
+      <input id="l-email" type="email" autocomplete="email" inputmode="email">
+      <label for="l-pass">Password</label>
+      <input id="l-pass" type="password" autocomplete="current-password">
+      <button type="button" class="btn" id="l-go">Log in</button>
+      <p class="muted">Only accounts added as administrators can enter. Create the account on the main site first, then add it as admin (see README).</p>
+    </div>
+  </section>
+
+  <section id="v-list" class="view hidden">
+    <div class="card">
+      <h2>Overview</h2>
+      <div class="chips" id="counts"></div>
+      <div class="row">
+        <div>
+          <label for="f-status">Show</label>
+          <select id="f-status">
+            <option value="nonDraft">All submitted</option>
+            <option value="submitted">Submitted (new)</option>
+            <option value="under_review">Under review</option>
+            <option value="info_required">More info needed</option>
+            <option value="approved">Approved</option>
+            <option value="waitlisted">Waitlisted</option>
+            <option value="rejected">Rejected</option>
+            <option value="draft">Drafts (not submitted)</option>
+          </select>
+        </div>
+        <div>
+          <label for="f-q">Search name, reference or matric no.</label>
+          <input id="f-q" type="search" placeholder="Type and press Search">
+        </div>
+      </div>
+      <button type="button" class="btn small" id="f-go">Search</button>
+      <button type="button" class="btn small alt" id="f-csv">Download CSV</button>
+      <div id="list-note" class="note hidden"></div>
+    </div>
+    <div id="list"></div>
+    <div class="row" id="pager"></div>
+  </section>
+
+  <section id="v-detail" class="view hidden">
+    <div id="detail"></div>
+  </section>
+
+</main>
+
+<footer>Admin area - handle applicant data with care.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
