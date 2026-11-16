@@ -9,8 +9,8 @@ window.PORTAL = {
   // From Supabase > Project Settings > API
   // Paste the Project URL and the "anon public" key.
   // NEVER paste the "service_role" key here.
-  SUPABASE_URL: "PASTE-YOUR-PROJECT-URL-HERE",
-  SUPABASE_ANON_KEY: "PASTE-YOUR-ANON-PUBLIC-KEY-HERE",
+  SUPABASE_URL: "https://ekrdeodzshywtvuasrkg.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_3U2WMGfeustHjn8__m09iw_wetUET9E",
 
   // ---- What visitors see on the home page ----
   name: "Sample Scholarship 2026",
